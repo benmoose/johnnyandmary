@@ -1,0 +1,12 @@
+[
+    {
+        "content": "Hello world",
+        "image": "/images/foo.png",
+        "slug": "foo"
+    },
+    {
+        "slug": "bar",
+        "content": "Sup you",
+        "image": "/images/foo.png"
+    }
+]
