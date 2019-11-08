@@ -12,9 +12,16 @@ module.exports = {
                 path: `${__dirname}/data/memories/`,
             },
         },
+        {
+            resolve: "gatsby-transformer-remark",
+            options: {
+                gfm: false,
+            },
+        },
         `gatsby-plugin-react-helmet`,
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
-        "gatsby-transformer-json",
+        `gatsby-transformer-json`,
+        `gatsby-image`,
     ],
 }

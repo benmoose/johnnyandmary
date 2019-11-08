@@ -1,13 +1,33 @@
 import React from "react"
-import { Link } from "gatsby"
+import {graphql, Link} from "gatsby"
 
-import SEO from "../components/seo"
+export const query = graphql`
+    query {
+        allDirectory(
+        filter: {
+            relativeDirectory: { eq: "" }
+        }) {
+            edges {
+                node {
+                    base
+                }
+            }
+        }
+    }
+`
 
-const IndexPage = () => (
-  <>
-    <SEO title="Home" />
-    <h1>Johnny and Mary</h1>
-  </>
-)
+const IndexPage = ({ data }) => {
+    const { allDirectory } = data
+    return (
+        <>
+            <h1>Johnny and Mary</h1>
+            <ul>
+                {
+                    allDirectory.edges.map(({ node }) => <li key={node.base}><Link to={`/memory/${node.base}`}>{node.base}</Link></li>)
+                }
+            </ul>
+        </>
+    )
+}
 
 export default IndexPage
